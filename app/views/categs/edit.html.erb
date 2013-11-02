@@ -1,0 +1,9 @@
+<h1>Edit category</h1>
+
+<%= form_for @categ do |f| %>
+
+ <p>Name of category: <br/><%= f.text_field :name %></p>
+
+  <p><%= f.submit "Save" %></p>
+
+<% end %>

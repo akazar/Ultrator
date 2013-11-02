@@ -1,0 +1,10 @@
+<h1>Edit page</h1>
+
+<%= form_for @page do |f| %>
+
+ <p>Name of page: <br/><%= f.text_field :name %></p>
+ <p>Body of page: <br/><%= f.text_field :body %></p>
+
+  <p><%= f.submit "Save" %></p>
+
+<% end %>

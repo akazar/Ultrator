@@ -1,0 +1,9 @@
+<h1>Edit subcategory</h1>
+
+<%= form_for @subcateg do |f| %>
+
+ <p>Name of subcategory: <br/><%= f.text_field :name %></p>
+
+  <p><%= f.submit "Save" %></p>
+
+<% end %>

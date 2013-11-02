@@ -1,0 +1,11 @@
+<h1>Create post</h1>
+
+<%= form_for @post do |f| %>
+
+ <p>Name: <br/><%= f.text_field :name %></p>
+ <p>Year: <br/><%= f.text_field :year %></p>
+ <p>Body: <br/><%= f.text_field :body %></p>
+ <p>Size: <br/><%= f.text_field :size %></p>
+  <p><%= f.submit "Create new" %></p>
+
+<% end %>

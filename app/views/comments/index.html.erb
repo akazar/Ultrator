@@ -1,0 +1,5 @@
+<% @comments.each do |i| %>
+
+  <p><%= link_to i.body, comment_path(i) %> <%= link_to "Delete", i, method: :delete, data: { confirm: "Delete?"} %></p>
+
+<% end %>

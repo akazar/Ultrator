@@ -1,0 +1,9 @@
+<h1>Edit comment</h1>
+
+<%= form_for @comment do |f| %>
+
+ <p>Body of comment: <br/><%= f.text_field :body %></p>
+
+  <p><%= f.submit "Save" %></p>
+
+<% end %>
