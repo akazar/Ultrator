@@ -22,7 +22,7 @@ before_filter :find_comment,  only: [:show, :edit, :update, :destroy]
   def create
     @comment = Comment.create(comment_param)
     if @comment.errors.empty?
-      redirect_to page_path(@comment)
+      redirect_to comment_path(@comment)
     else
       flash.now[:error] = "You made mistakes."
       render "new"
