@@ -1,0 +1,20 @@
+%h1
+  = @subcateg.name
+/
+  <haml_loud> link_to 'Edit', edit_subcateg_path(@subcateg), class: "btn btn-small btn-warning" </haml_loud>
+  <haml_loud> link_to 'All subcategories', subcategs_path, class: "btn btn-small btn-primary" </haml_loud>
+- if @subcateg.posts.length > 0
+  - @subcateg.posts.each do |post|
+    .col-md-3
+      .thumbnail
+        %img{alt: "...", height: "200", src: "http://www.binaryturf.com/wp-content/uploads/2011/06/pin-the-post.jpg", width: "300"}/
+        .caption
+          %h3
+            = link_to post.name, post_path(post)
+          %p
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          %p
+            = link_to "More", post_path(post), class: "btn btn-primary btn-block"
+- else
+  %h4 No posts.
+%hr/

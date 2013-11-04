@@ -10,5 +10,7 @@
 #
 
 class Page < ActiveRecord::Base
-  has_many :comments, as: :commentable
+  validates :name,  presence: true, length: {maximum: 140 }
+  validates :body,  presence: true
+  has_many :comments, as: :commentable, dependent: :destroy
 end

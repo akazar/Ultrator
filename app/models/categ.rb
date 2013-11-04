@@ -9,5 +9,6 @@
 #
 
 class Categ < ActiveRecord::Base
-   has_many :subcategs
+  validates :name,  presence: true, length: {maximum: 60 }
+  has_many :subcategs
 end

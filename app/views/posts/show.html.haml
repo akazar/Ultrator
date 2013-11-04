@@ -1,0 +1,51 @@
+.col-md-8.col-md-offset-2
+  %h1
+    = @post.name
+  %p
+    %strong Year:
+    = @post.year
+  %p
+    = @post.body
+  %p
+    %strong Size:
+    = @post.size
+  %hr/
+  %h3 Comments
+  - if @post.comments.length > 0
+    - @post.comments.each do |comment|
+      .alert.alert-info
+        = comment.body
+  - else
+    %h4 No comments have been posted yet.
+  %h5 Add comment:
+  %form{role: "form"}
+    %p
+      %textarea.form-control{rows: "3"}
+    %button.btn.btn-primary.pull-right{type: "button"} Comment
+    %hr/
+    %h3 Add a comment:
+    = form_for([@commentable, Comment.new]) do |f|
+      .field
+        = f.label :body
+        %br/
+        = f.text_area :body
+        .actions
+        = f.submit
+
+
+
+/
+  <h3>Add a comment:</h3>
+  <haml_loud> form_for([@post, @post.comments.create(params[:comment])]) do |f| </haml_loud><haml_block>
+  <div class="field">
+  <haml_loud> f.label :body </haml_loud><br />
+  <haml_loud> f.text_area :body </haml_loud>
+  </div>
+  <div class="actions">
+  <haml_loud> f.submit </haml_loud>
+  </div>
+  </haml_block>
+/
+  <haml_loud> link_to 'All posts', posts_path, class: "btn btn-small btn-primary" </haml_loud>
+  <haml_loud> link_to 'Edit', edit_post_path(@post), class: "btn btn-small btn-info" </haml_loud>
+  <haml_loud> link_to "Delete", @post, class: "btn btn-small btn-danger", method: :delete, data: { confirm: "Delete?"} </haml_loud>

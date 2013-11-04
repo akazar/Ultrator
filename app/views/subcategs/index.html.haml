@@ -1,0 +1,5 @@
+- @subcategs.each do |i|
+  %p
+    = link_to i.name, subcateg_path(i)
+    = link_to 'Edit', edit_subcateg_path(i), class: "btn btn-small btn-warning"
+    = link_to "Delete", i, method: :delete, data: { confirm: "Delete?"}

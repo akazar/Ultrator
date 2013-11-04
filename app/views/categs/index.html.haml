@@ -1,0 +1,21 @@
+- @categs.each do |i|
+  %h1
+    = link_to i.name, categ_path(i)
+  /
+    <haml_loud> link_to 'Edit', edit_categ_path(i) </haml_loud>
+    <haml_loud> link_to "Delete", i, method: :delete, data: { confirm: "Delete?"} </haml_loud>
+  - if i.subcategs.length > 0
+    .row
+      - i.subcategs.each do |subcateg|
+        - if subcateg.posts.length > 0
+          - subcateg.posts.each do |post|
+            .col-md-3
+              .thumbnail
+                %img{alt: "...", height: "200", src: "http://www.binaryturf.com/wp-content/uploads/2011/06/pin-the-post.jpg", width: "300"}/
+                .caption
+                  %h3= link_to post.name, post_path(post)
+                  %p
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  %p
+                    = link_to "More", post_path(post), class: "btn btn-primary btn-block"
+  %hr/

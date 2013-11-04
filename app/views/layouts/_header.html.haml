@@ -1,0 +1,22 @@
+%nav.navbar.navbar-default.navbar-inverse{role: "navigation"}
+  .navbar-header
+    %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a#logo.navbar-brand{href: "/"} Ultra
+  #bs-example-navbar-collapse-1.collapse.navbar-collapse
+    %ul.nav.navbar-nav
+      %li.active
+      %li
+        %a{href: "/"} Home
+      %li
+        %a{href: "/pages"} Pages
+      %li
+        %a{href: "#"} Privacy policy
+      %li
+        %a{href: "#"} Contacts
+    %ul.nav.navbar-nav.navbar-right
+      %li
+        %a{href: "#"} Sign in

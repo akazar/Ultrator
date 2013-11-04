@@ -1,0 +1,10 @@
+%ul.nav.nav-pills.nav-stacked.col-md-8.col-md-offset-2
+  - @pages.each do |i|
+    %li.active
+      = link_to i.name, page_path(i)
+      /
+        <haml_loud> link_to 'Edit', edit_page_path(i), class: "btn btn-small btn-warning" </haml_loud>
+        <haml_loud> link_to "Delete", i, method: :delete, data: { confirm: "Delete?"} </haml_loud>
+%hr/
+/
+  <haml_loud> link_to 'New page', new_page_path(@post), class: "btn btn-small btn-warning" </haml_loud>

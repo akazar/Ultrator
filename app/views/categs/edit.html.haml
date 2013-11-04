@@ -1,0 +1,6 @@
+%h1 Edit category
+= render partial: "notifications"
+= form_for @categ do |f|
+  = render partial: "form", locals: { f: f}
+  %p
+    = f.submit "Save"

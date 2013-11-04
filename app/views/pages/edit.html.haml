@@ -1,0 +1,6 @@
+%h1 Edit page
+= render partial: "notifications"
+= form_for @page do |f|
+  = render partial: "form", locals: { f: f}
+  %p
+    = f.submit "Save"

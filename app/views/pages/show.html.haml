@@ -1,0 +1,34 @@
+.col-md-8.col-md-offset-2
+  %h1
+    = @page.name
+  %p
+    = @page.body
+  %hr/
+  %h3 Comments
+  - if @page.comments.length > 0
+    - @page.comments.each do |comment|
+      .alert.alert-info
+        = comment.body
+  - else
+    %h4 No comments have been posted yet.
+  %h5 Add comment:
+  %form{role: "form"}
+    %p
+      %textarea.form-control{rows: "3"}
+    %button.btn.btn-primary.pull-right{type: "button"} Comment
+/
+  <h3>Add a comment:</h3>
+  <haml_loud> form_for([@page, @page.comments.create(params[:comment])]) do |f| </haml_loud><haml_block>
+
+  <div class="field">
+  <haml_loud> f.label :body </haml_loud><br />
+  <haml_loud> f.text_area :body </haml_loud>
+  </div>
+  <div class="actions">
+  <haml_loud> f.submit </haml_loud>
+  </div>
+  </haml_block>
+/
+  <haml_loud> link_to 'All pages', pages_path, class: "btn btn-small btn-primary" </haml_loud>
+  <haml_loud> link_to 'Edit', edit_page_path(@page), class: "btn btn-small btn-warning" </haml_loud>
+  <haml_loud> link_to "Delete", @page, method: :delete, data: { confirm: "Delete?"} </haml_loud>

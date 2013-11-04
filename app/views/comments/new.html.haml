@@ -1,0 +1,8 @@
+%h1 Create comment
+= form_for @comment do |f|
+  %p
+    Body of comment:
+    %br/
+    = f.text_field :body
+  %p
+    = f.submit "Create new"

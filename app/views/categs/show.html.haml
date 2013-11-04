@@ -1,0 +1,25 @@
+
+%h1
+  = @categ.name
+/
+  <haml_loud> link_to 'Edit', edit_categ_path(@categ), class: "btn btn-small btn-warning" </haml_loud>
+  <haml_loud> link_to 'All categories', categs_path, class: "btn btn-small btn-primary" </haml_loud>
+- if @categ.subcategs.length > 0
+  - @categ.subcategs.each do |subcateg|
+    %p
+    %h2
+      = link_to subcateg.name, subcateg_path(subcateg)
+    - if subcateg.posts.length > 0
+      .row
+        - subcateg.posts.each do |post|
+          .col-md-3
+            .thumbnail
+              %img{alt: "...", height: "200", src: "http://www.binaryturf.com/wp-content/uploads/2011/06/pin-the-post.jpg", width: "300"}/
+              .caption
+                %h3
+                  = link_to post.name, post_path(post)
+                %p
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                %p
+                  = link_to "More", post_path(post), class: "btn btn-primary btn-block"
+    %hr/
