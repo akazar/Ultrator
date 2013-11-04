@@ -23,16 +23,6 @@
       %textarea.form-control{rows: "3"}
     %button.btn.btn-primary.pull-right{type: "button"} Comment
     %hr/
-    %h3 Add a comment:
-    = form_for([@commentable, Comment.new]) do |f|
-      .field
-        = f.label :body
-        %br/
-        = f.text_area :body
-        .actions
-        = f.submit
-
-
 
 /
   <h3>Add a comment:</h3>

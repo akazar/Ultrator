@@ -2,15 +2,17 @@ Ultra::Application.routes.draw do
 
 root "categs#index"
 
-resources :categs, :subcategs, :pages, :comments
+resources :categs, :subcategs, :pages, :posts, :comments
+resources :posts, comments: :commentable
+resources :pages, comments: :commentable
 
-resources :posts do
-  resources :comments
-end
+#resources :posts do
+#  resources :comments
+#end
 
-resources :pages do
-  resources :comments
-end
+#resources :pages do
+#  resources :comments
+#end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
